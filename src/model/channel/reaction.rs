@@ -39,6 +39,9 @@ pub struct Reaction {
     ///
     /// [`User`]: ../user/struct.User.html
     pub user_id: UserId,
+    /// A partial amount of data about the sending user's member data, if this
+    /// reaction was added to a message in a guild (only for added reactions).
+    pub member: Option<PartialMember>,
     /// The optional Id of the [`Guild`] where the reaction was sent.
     ///
     /// [`Guild`]: ../guild/struct.Guild.html

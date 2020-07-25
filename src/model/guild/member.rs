@@ -550,6 +550,8 @@ pub struct PartialMember {
     pub nick: Option<String>,
     /// Vector of Ids of [`Role`]s given to the member.
     pub roles: Vec<RoleId>,
+    /// Attached User struct.
+    pub user: Option<User>,
     #[serde(skip)]
     pub(crate) _nonexhaustive: (),
 }

@@ -149,6 +149,7 @@ fn message_reaction_add() {
     p!(ReactionAddEvent, "message_reaction_add_1");
     p!(ReactionAddEvent, "message_reaction_add_2");
     p!(ReactionAddEvent, "message_reaction_add_3");
+    p!(ReactionAddEvent, "message_reaction_add_4");
 }
 
 #[test]
