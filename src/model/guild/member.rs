@@ -551,7 +551,9 @@ pub struct PartialMember {
     /// Vector of Ids of [`Role`]s given to the member.
     pub roles: Vec<RoleId>,
     /// Attached User struct.
-    pub user: Option<User>,
+    #[serde(default, deserialize_with = "deserialize_option_sync_user",
+            serialize_with = "serialize_option_sync_user")]
+    pub user: Option<Arc<RwLock<User>>>,
     #[serde(skip)]
     pub(crate) _nonexhaustive: (),
 }

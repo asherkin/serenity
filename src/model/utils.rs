@@ -197,6 +197,22 @@ pub fn serialize_sync_user<S: Serializer>(
     User::serialize(&*user.read(), serializer)
 }
 
+pub fn deserialize_option_sync_user<'de, D>(deserializer: D)
+    -> StdResult<Option<Arc<RwLock<User>>>, D::Error> where D: Deserializer<'de> {
+    let option: Option<User> = Option::deserialize(deserializer)?;
+    Ok(option.map(|user| Arc::new(RwLock::new(user))))
+}
+
+pub fn serialize_option_sync_user<S: Serializer>(
+    user: &Option<Arc<RwLock<User>>>,
+    serializer: S,
+) -> StdResult<S::Ok, S::Error> {
+    match user {
+        Some(user) => serializer.serialize_some(&*user.read()),
+        None => serializer.serialize_none()
+    }
+}
+
 pub fn deserialize_users<'de, D: Deserializer<'de>>(
     deserializer: D)
     -> StdResult<HashMap<UserId, Arc<RwLock<User>>>, D::Error> {
