@@ -436,6 +436,9 @@ pub struct User {
     /// change if the username+discriminator pair becomes non-unique.
     #[serde(rename = "username")]
     pub name: String,
+    /// Partial guild member info for the user. Present for mentioned users
+    /// in guild channel message create / update events.
+    pub member: Option<PartialMember>,
     #[serde(skip)]
     pub(crate) _nonexhaustive: (),
 }
@@ -861,6 +864,7 @@ impl From<CurrentUser> for User {
             discriminator: user.discriminator,
             id: user.id,
             name: user.name,
+            member: None,
             _nonexhaustive: (),
         }
     }
@@ -874,6 +878,7 @@ impl<'a> From<&'a CurrentUser> for User {
             discriminator: user.discriminator,
             id: user.id,
             name: user.name.clone(),
+            member: None,
             _nonexhaustive: (),
         }
     }
@@ -959,6 +964,7 @@ mod test {
                 bot: true,
                 discriminator: 1432,
                 name: "test".to_string(),
+                member: None,
                 _nonexhaustive: (),
             }
         }

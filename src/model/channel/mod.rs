@@ -587,6 +587,7 @@ mod test {
                     bot: false,
                     discriminator: 1,
                     name: "ab".to_string(),
+                    member: None,
                     _nonexhaustive: (),
                 })),
                 _nonexhaustive: (),

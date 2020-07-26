@@ -883,6 +883,7 @@ mod test {
             bot: false,
             discriminator: 0000,
             name: "Crab".to_string(),
+            member: None,
             _nonexhaustive: (),
         };
 

@@ -347,6 +347,7 @@ mod test {
                 bot: false,
                 discriminator: 4132,
                 name: "fake".to_string(),
+                member: None,
                 _nonexhaustive: (),
             };
             let member = Member {

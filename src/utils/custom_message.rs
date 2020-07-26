@@ -250,6 +250,7 @@ fn dummy_message() -> Message {
             bot: false,
             discriminator: 0x0000,
             name: String::new(),
+            member: None,
             _nonexhaustive: (),
         },
         channel_id: ChannelId::default(),

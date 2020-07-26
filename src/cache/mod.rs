@@ -890,6 +890,7 @@ mod test {
                     bot: false,
                     discriminator: 1,
                     name: "user 1".to_owned(),
+                    member: None,
                     _nonexhaustive: (),
                 },
                 channel_id: ChannelId(2),
