@@ -42,7 +42,7 @@ struct SendDecoder(OpusDecoder);
 impl SendDecoder {
     fn decode_float(&mut self, input: &[u8], output: &mut [f32], fec: bool) -> OpusResult<usize> {
         let &mut SendDecoder(ref mut sd) = self;
-        sd.decode_float(input, output, fec)
+        sd.decode_float(Some(input), output, fec)
     }
 }
 
